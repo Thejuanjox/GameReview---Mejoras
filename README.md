@@ -5,7 +5,7 @@
 - Benjamin Cerda: Desarrollo del frontend (HTML, Bootstrap), integracion de la API con JavaScript (fetch/async-await), manipulacion del DOM y validaciones de formularios.
 
 ## 2. Descripcion del proyecto
-GameReview es una plataforma web del sector de entretenimiento que permite a los usuarios visualizar reseñas de videojuegos clasificados por genero y puntuacion. Resuelve el problema de la organizacion de datos al contar con un panel de administracion centralizado para gestionar el catalogo completo.
+GameReview es una plataforma web del sector de entretenimiento que permite a los usuarios visualizar reseñas de videojuegos clasificados por genero y puntuacion, ademas de calificar su experiencia de forma interactiva. Resuelve el problema de la organizacion de datos al contar con un panel de administracion centralizado para gestionar el catalogo completo, permitiendo la subida de portadas fisicas y la administracion dinamica de los generos.
 
 ## 3. Requisitos previos
 - Node.js (Version 18 o superior recomendada).
@@ -32,14 +32,14 @@ Para acceder al panel de administracion protegido:
 - Contraseña: admin123
 
 ## 7. Uso del sistema
-- Vista publica: Al iniciar, navegue a `http://localhost:3000` para ver el catalogo principal.
+- Vista publica: Al iniciar, navegue a `http://localhost:3000` para ver el catalogo principal y utilizar el sistema interactivo de estrellas.
 - Login: Haga clic en el boton "Acceso Admin" en la barra de navegacion superior o ingrese a `http://localhost:3000/login`.
-- Panel de Administracion: Tras iniciar sesion exitosamente, sera redirigido a `/admin` donde podra crear, editar y eliminar las reseñas de los videojuegos mediante el formulario superior y la tabla inferior.
+- Panel de Administracion: Tras iniciar sesion exitosamente, sera redirigido a `/admin` donde podra crear, editar y eliminar reseñas subiendo imagenes fisicas, y administrar el catalogo de generos.
 
 ## 8. Estructura del proyecto
 - `/config/db.js`: Contiene la configuracion y conexion a la base de datos MySQL.
-- `/controllers/`: Aloja la logica de negocio (authController para login y juegosController para el CRUD).
+- `/controllers/`: Aloja la logica de negocio (authController, juegosController y generosController).
 - `/model/Juego.js`: Define la clase y estructura de los datos de un videojuego.
-- `/public/`: Contiene los archivos estaticos expuestos al cliente (scripts JS del frontend).
+- `/public/`: Contiene los archivos estaticos expuestos al cliente y la subcarpeta /uploads/ para las imagenes fisicas.
 - `/views/`: Almacena los archivos HTML de las vistas (index, login, admin).
-- `server.js`: Archivo principal que levanta el servidor Express y define las rutas.
+- `server.js`: Archivo principal que levanta el servidor Express, define las rutas e intercepta las imagenes con Multer.
